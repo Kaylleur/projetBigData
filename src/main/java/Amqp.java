@@ -7,14 +7,15 @@ import com.rabbitmq.client.ConnectionFactory;
  */
 public class Amqp {
 
-    protected final static String QUEUE_NAME = "test_amqp";
+    protected final static String QUEUE_NAME = "hello";
 
     protected static Channel connect()throws Exception{
-
+        //get variable
         String uri = System.getenv("cloud_amqp").split(";")[0];
         String username = System.getenv("cloud_amqp").split(";")[1];
         String password = System.getenv("cloud_amqp").split(";")[2];
 
+        //initialize channel
         ConnectionFactory factory = new ConnectionFactory();
         factory.setUri(uri);
         factory.setUsername(username);

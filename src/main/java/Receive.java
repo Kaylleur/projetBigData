@@ -8,6 +8,11 @@ import java.io.IOException;
 public class Receive extends Amqp{
 
 
+    /**
+     * Consumne messages from amqp
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception{
         Channel channel = connect();
 
@@ -22,7 +27,10 @@ public class Receive extends Amqp{
         };
         channel.basicConsume(QUEUE_NAME, true, consumer);
 
-        System.out.println("test de code après la consommation ?");
+        for (int i = 0; i < 1000; i++) {
+            Thread.sleep(10);
+            System.out.println( "Are we synchronous ?");
+        }
 
 
     }
