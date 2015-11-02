@@ -1,3 +1,4 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
@@ -21,17 +22,12 @@ public class Receive extends Amqp{
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
                     throws IOException {
-                String message = new String(body, "UTF-8");
+                ObjectMapper mapper = new ObjectMapper();
+                Task message = mapper.readValue(body,Task.class);
                 System.out.println(" [x] Received '" + message + "'");
             }
         };
         channel.basicConsume(QUEUE_NAME, true, consumer);
-
-        for (int i = 0; i < 1000; i++) {
-            Thread.sleep(10);
-            System.out.println( "Are we synchronous ?");
-        }
-
 
     }
 }
