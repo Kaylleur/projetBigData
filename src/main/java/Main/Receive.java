@@ -1,3 +1,5 @@
+package Main;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.*;
 
@@ -6,7 +8,7 @@ import java.io.IOException;
 /**
  * Created by Thomas on 01/11/2015.
  */
-public class Receive extends Amqp{
+public class Receive extends AMQP.Amqp {
 
 
     /**
@@ -23,7 +25,12 @@ public class Receive extends Amqp{
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
                     throws IOException {
                 ObjectMapper mapper = new ObjectMapper();
-                Task message = mapper.readValue(body,Task.class);
+                Task message = mapper.readValue(body, Task.class);
+                try {
+                    message.run();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 System.out.println(" [x] Received '" + message + "'");
             }
         };
