@@ -7,7 +7,7 @@ import ressources.Resource;
  * The T parameter just indicate that the class will work with T
  *
  */
-//@TODO This class is not correct we should use a class named TaskResponse to convert from Json then create a Task from the TaskResponse !
+//@TODO This class is not amqp we should use a class named TaskResponse to convert from Json then create a Task from the TaskResponse !
 public class Task<T> {
 
     public Class<T> aClass;
