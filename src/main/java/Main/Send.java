@@ -1,29 +1,30 @@
-package main;
+package Main;
 /**
  * Created by Thomas on 01/11/2015.
  */
 
-import amqp.Amqp;
+import AMQP.Amqp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
-import model.Game;
+import model.Summoner;
 import model.Task;
+import ressources.SummonerRessource;
 
 public class Send extends Amqp {
 
     /**
-     * main.Send a "Hello World message"
+     * Main.Send a "Hello World message"
      * @param args
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        //Connection to the amqp server
+        //Connection to the AMQP server
         Channel channel = connect();
 
         //Create a new task with parameter the class should be attacked and the method to invoke !
 
 //        Task task = new Task<Summoner>(Summoner.class,"getSummonerWithId",new Class[]{int.class},new Object[]{1});
-        Task task = new Task<Game>(Game.class,"getGames");
+        Task task = new Task<Summoner>(SummonerRessource.getSummoner(1));
 
         //Json mapper to convert to JSON
         ObjectMapper mapper = new ObjectMapper();

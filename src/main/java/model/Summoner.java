@@ -8,7 +8,7 @@ public class Summoner {
     public static void getSummoner(){
         System.out.println("Hey i'm a summoner !!");
     }
-    public static void getSummonerWithId(int id){
+    public static void getSummonerWithId(Integer id){
         System.out.println("Hey i'm a summoner with the id " + id + " !!");
     }
 }

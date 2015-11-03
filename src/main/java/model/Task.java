@@ -1,5 +1,7 @@
 package model;
 
+import ressources.Ressource;
+
 /**
  * Created by Thomas on 02/11/2015.
  * The T parameter just indicate that the class will work with T
@@ -19,25 +21,15 @@ public class Task<T> {
     public Task() {
     }
 
-    public Task(Class<T> aClass, String method, Class[] parametersMethod, Object... parameters) {
+    private Task(Class<T> aClass, String method, Class[] parametersMethod, Object... parameters) {
         this.aClass = aClass;
         this.method = method;
         this.parametersMethod = parametersMethod;
         this.parameters = parameters;
     }
 
-    public Task(Class<T> aClass, String method,Object... parameters) {
-        this.aClass = aClass;
-        this.method = method;
-        this.parametersMethod = null;
-        this.parameters = parameters;
-    }
-
-    public Task(Class<T> aClass, String method) {
-        this.aClass = aClass;
-        this.method = method;
-        this.parametersMethod = null;
-        this.parameters = null;
+    public Task(Ressource ressource){
+        this(ressource.getaClass(),ressource.getMethod(),ressource.getParametersType(),ressource.getParameters());
     }
 
     public T run() throws Exception {

@@ -9,5 +9,7 @@ release.properties
 dependency-reduced-pom.xml
 .idea
 test_amqp.iml
+*/target/
+*.iml
 
 
