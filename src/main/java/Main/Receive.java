@@ -1,5 +1,6 @@
-package Main;
+package main;
 
+import amqp.Amqp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.*;
 import model.Task;
@@ -9,11 +10,11 @@ import java.io.IOException;
 /**
  * Created by Thomas on 01/11/2015.
  */
-public class Receive extends AMQP.Amqp {
+public class Receive extends Amqp {
 
 
     /**
-     * Consumne messages from AMQP
+     * Consumne messages from amqp
      * @param args
      * @throws Exception
      */

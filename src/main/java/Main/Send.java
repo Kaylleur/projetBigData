@@ -1,9 +1,9 @@
-package Main;
+package main;
 /**
  * Created by Thomas on 01/11/2015.
  */
 
-import AMQP.Amqp;
+import amqp.Amqp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
 import model.Summoner;
@@ -13,12 +13,12 @@ import ressources.SummonerRessource;
 public class Send extends Amqp {
 
     /**
-     * Main.Send a "Hello World message"
+     * main.Send a "Hello World message"
      * @param args
      * @throws Exception
      */
     public static void main(String[] args) throws Exception {
-        //Connection to the AMQP server
+        //Connection to the amqp server
         Channel channel = connect();
 
         //Create a new task with parameter the class should be attacked and the method to invoke !

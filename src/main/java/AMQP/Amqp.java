@@ -1,4 +1,4 @@
-package AMQP;
+package amqp;
 
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
