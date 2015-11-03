@@ -11,8 +11,7 @@ import java.io.IOException;
  * Created by Thomas on 01/11/2015.
  */
 public class Receive extends Amqp {
-
-
+    
     /**
      * Consumne messages from amqp
      * @param args

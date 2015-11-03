@@ -1,6 +1,6 @@
 package model;
 
-import ressources.Ressource;
+import ressources.Resource;
 
 /**
  * Created by Thomas on 02/11/2015.
@@ -28,8 +28,8 @@ public class Task<T> {
         this.parameters = parameters;
     }
 
-    public Task(Ressource ressource){
-        this(ressource.getaClass(),ressource.getMethod(),ressource.getParametersType(),ressource.getParameters());
+    public Task(Resource resource){
+        this(resource.getaClass(), resource.getMethod(), resource.getParametersType(), resource.getParameters());
     }
 
     public T run() throws Exception {

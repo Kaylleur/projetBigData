@@ -8,7 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
 import model.Summoner;
 import model.Task;
-import ressources.SummonerRessource;
+import ressources.SummonerResource;
 
 public class Send extends Amqp {
 
@@ -24,7 +24,7 @@ public class Send extends Amqp {
         //Create a new task with parameter the class should be attacked and the method to invoke !
 
 //        Task task = new Task<Summoner>(Summoner.class,"getSummonerWithId",new Class[]{int.class},new Object[]{1});
-        Task task = new Task<Summoner>(SummonerRessource.getSummoner(1));
+        Task task = new Task<Summoner>(SummonerResource.getSummoner(1));
 
         //Json mapper to convert to JSON
         ObjectMapper mapper = new ObjectMapper();
