@@ -6,32 +6,22 @@ package main;
 import amqp.Amqp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.Channel;
-import models.Task;
-import resources.SummonerResource;
 
-public class Send extends Amqp {
+public class Send {
 
     /**
      * main.Send a "Hello World message"
-     * @param args
-     * @throws Exception
      */
-    public static void main(String[] args) throws Exception {
+    public static void run(Object object) throws Exception {
         //Connection to the amqp server
-        Channel channel = connect();
+        Amqp.connect(Amqp.QUEUE_MODEL);
+        Channel channel = Amqp.getCurrentChannel();
 
-        //Create a new task with parameter the class should be attacked and the method to invoke !
-
-//        Task task = new Task<Summoner>(Summoner.class,"getSummonerWithId",new Class[]{int.class},new Object[]{1});
-        Task task = new Task(SummonerResource.getSummoner(19838593));
-
-        //Json mapper to convert to JSON
-        ObjectMapper mapper = new ObjectMapper();
-        String message = mapper.writeValueAsString(task);
-
+        //TODO TO IMPLEMENT TO SEND AFTER RECEIVE
         //publish the json to the queue and write it !
-        channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
-        System.out.println(" [x] Sent '" + task + " - " + message + "'");
-        System.exit(0);
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonToSend = mapper.writeValueAsString(object);
+        channel.basicPublish("", Amqp.QUEUE_MODEL, null, jsonToSend.getBytes());
+
     }
 }

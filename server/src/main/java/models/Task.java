@@ -31,6 +31,6 @@ public class Task {
 
     public void run() throws Exception {
 //        System.out.println("Task.run() launched with : " + aClass.toString() + " / " + method + " / " + parametersMethod.length + " item in parametersMethod  / " + parameters.length + " parameters ");
-        aClass.getMethod(method, parametersMethod).invoke(null, parameters);
+        Harvester.harvest(aClass.getMethod(method, parametersMethod).invoke(null, parameters));
     }
 }
