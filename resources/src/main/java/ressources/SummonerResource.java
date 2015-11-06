@@ -8,12 +8,12 @@ import services.SummonerService;
  */
 public class SummonerResource extends Resource {
 
-    private SummonerResource(Class aClass, String method, Class[] parametersType, Object[] parameters) {
+    private SummonerResource(Class aClass, String method,Class[] parametersType,Object[] parameters) {
         super(aClass, method, parametersType, parameters);
     }
 
     public static Resource getSummoner(Integer id){
-        return new SummonerResource(SummonerService.class,"getSummoner",new Class[]{id.getClass()},new Object[]{id});
+        return new SummonerResource(SummonerService.class,"load",new Class[]{id.getClass()},new Object[]{id});
     }
 
 }

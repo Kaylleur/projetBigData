@@ -9,16 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>fr.thomas-brunet.projetBigData</groupId>
-    <artifactId>resources</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>routes</artifactId>
 
 
-    <dependencies>
-        <dependency>
-            <groupId>fr.thomas-brunet.projetBigData</groupId>
-            <artifactId>api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 </project>

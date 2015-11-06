@@ -3,7 +3,8 @@ package main;
 import amqp.Amqp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.*;
-import model.Task;
+import models.Task;
+import responses.Response;
 
 import java.io.IOException;
 
@@ -22,11 +23,12 @@ public class Receive extends Amqp {
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
         Consumer consumer = new DefaultConsumer(channel) {
+
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
                     throws IOException {
                 ObjectMapper mapper = new ObjectMapper();
-                Task task = mapper.readValue(body, Task.class);
+                Task<Response> task = mapper.readValue(body, Task.class);
                 try {
                     task.run();
                 } catch (Exception e) {

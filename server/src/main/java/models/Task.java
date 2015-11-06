@@ -1,16 +1,12 @@
-package model;
+package models;
 
 import ressources.Resource;
 
 /**
- * Created by Thomas on 02/11/2015.
- * The T parameter just indicate that the class will work with T
- *
+ * Created by Thomas on 04/11/2015.
  */
-//@TODO This class is not amqp we should use a class named TaskResponse to convert from Json then create a Task from the TaskResponse !
 public class Task<T> {
-
-    public Class<T> aClass;
+    public Class aClass;
     public String method;
     public Class[] parametersMethod;
     public Object[] parameters;
@@ -21,7 +17,8 @@ public class Task<T> {
     public Task() {
     }
 
-    private Task(Class<T> aClass, String method, Class[] parametersMethod, Object... parameters) {
+
+    private Task(Class aClass, String method, Class[] parametersMethod, Object... parameters) {
         this.aClass = aClass;
         this.method = method;
         this.parametersMethod = parametersMethod;
@@ -32,8 +29,8 @@ public class Task<T> {
         this(resource.getaClass(), resource.getMethod(), resource.getParametersType(), resource.getParameters());
     }
 
-    public T run() throws Exception {
+    public void run() throws Exception {
+//        System.out.println("Task.run() launched with : " + aClass.toString() + " / " + method + " / " + parametersMethod.length + " item in parametersMethod  / " + parameters.length + " parameters ");
         aClass.getMethod(method, parametersMethod).invoke(null, parameters);
-        return (T) aClass;
     }
 }
