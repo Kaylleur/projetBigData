@@ -1,11 +1,11 @@
 package models;
 
-import ressources.Resource;
+import resources.Resource;
 
 /**
  * Created by Thomas on 04/11/2015.
  */
-public class Task<T> {
+public class Task {
     public Class aClass;
     public String method;
     public Class[] parametersMethod;

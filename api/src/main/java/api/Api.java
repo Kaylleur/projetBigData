@@ -1,19 +1,9 @@
 package api;
 
-import api.util.HttpMethod;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.deser.std.JsonNodeDeserializer;
-import jdk.nashorn.internal.parser.JSONParser;
 import responses.Response;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by Thomas on 03/11/2015.
@@ -31,6 +21,7 @@ public class Api {
     private String route;
 
     private Api() {
+        if(apiKey == null) System.out.println("ERROR : Api key not find ! Couldn't communicate with the API.");
     }
 
     /**
