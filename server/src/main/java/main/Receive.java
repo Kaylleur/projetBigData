@@ -19,7 +19,7 @@ public class Receive{
      * @throws Exception
      */
     public static void main(String[] args) throws Exception{
-        Amqp.connect(Amqp.QUEUE_TASK);
+        Amqp.connect(Amqp.getQUEUE_TASK());
         Channel channel = Amqp.getCurrentChannel();
 
         System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
@@ -38,7 +38,7 @@ public class Receive{
                 System.out.println(" [x] Received '" + task + "'");
             }
         };
-        channel.basicConsume(Amqp.QUEUE_TASK, true, consumer);
+        channel.basicConsume(Amqp.getQUEUE_TASK(), true, consumer);
 
     }
 }

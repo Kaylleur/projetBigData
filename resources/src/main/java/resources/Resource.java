@@ -1,13 +1,12 @@
 package resources;
 
-import java.util.List;
 
 /**
  * Created by Thomas on 03/11/2015.
+ * Resources are summary for method per model
  */
-//TODO We have to check dependency into ressource
+//TODO We have to check dependency into resource
 public abstract class Resource {
-    protected static List<Resource> instances;
 
     protected Class aClass;
     protected String method;

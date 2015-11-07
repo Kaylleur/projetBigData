@@ -4,6 +4,8 @@ import responses.SummonerResponse;
 
 /**
  * Created by Thomas on 03/11/2015.
+ * Model for summoner final class instantiate
+ * This represent ONE summoner
  */
 public class Summoner {
 

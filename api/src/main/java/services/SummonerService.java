@@ -11,6 +11,8 @@ import java.util.Map;
 
 /**
  * Created by Thomas on 03/11/2015.
+ * Each action for summonerS will be here
+ * action for ONE summoner will be in the model
  */
 public class SummonerService {
 

@@ -2,6 +2,7 @@ package responses;
 
 /**
  * Created by Thomas on 03/11/2015.
+ * Description for summoner
  */
 public class SummonerResponse extends Response{
 

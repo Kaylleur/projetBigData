@@ -15,9 +15,12 @@ public class Api {
     private static Api instance;
     //Url de l'api
     private static String baseUri = "https://euw.api.pvp.net/";
+    //the key used
     private static String apiKey = System.getenv("riotApiKey");
 
+    //The class used to parse json
     private Class responseClass;
+    //the route
     private String route;
 
     private Api() {
@@ -37,24 +40,31 @@ public class Api {
         return "?api_key=" + apiKey;
     }
 
-    public void setResponseClass(Class<Response> responseClass) {
-        this.responseClass = responseClass;
-    }
-
-    public void setRoute(String route) {
-        this.route = route;
-    }
-
+    /**
+     * set response and route
+     * @param route
+     * @param response
+     * @return
+     */
     public Api path(String route, Class response){
-        this.setResponseClass(response);
-        this.setRoute(route);
+        this.responseClass = response;
+        this.route = route;
         return this;
     }
 
+    /**
+     * parse uri
+     * @return
+     */
     private String prepareUri(){
         return baseUri + route + getApiKey();
     }
 
+    /**
+     * Execute the request and try to parse into responseClass
+     * @return
+     * @throws Exception
+     */
     public Object execute() throws Exception {
         URL url = new URL(prepareUri());
 
