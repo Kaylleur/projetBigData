@@ -3,7 +3,8 @@ package main;
 import amqp.Amqp;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rabbitmq.client.*;
-import models.Task;
+import responses.TaskResponse;
+import util.Task;
 
 import java.io.IOException;
 
@@ -28,7 +29,7 @@ public class Receive{
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body)
                     throws IOException {
                 ObjectMapper mapper = new ObjectMapper();
-                Task task = mapper.readValue(body, Task.class);
+                Task task = new Task(mapper.readValue(body, TaskResponse.class));
                 try {
                     task.run();
                 } catch (Exception e) {

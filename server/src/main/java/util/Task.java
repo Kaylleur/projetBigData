@@ -1,28 +1,26 @@
-package models;
+package util;
 
 import resources.Resource;
+import responses.TaskResponse;
 
 /**
  * Created by Thomas on 04/11/2015.
  */
 public class Task {
-    public Class aClass;
-    public String method;
-    public Class[] parametersMethod;
-    public Object[] parameters;
-
-    /**
-     * Keep the empty constructor for conversion json to the object
-     */
-    public Task() {
-    }
-
+    private Class aClass;
+    private String method;
+    private Class[] parametersMethod;
+    private Object[] parameters;
 
     private Task(Class aClass, String method, Class[] parametersMethod, Object... parameters) {
         this.aClass = aClass;
         this.method = method;
         this.parametersMethod = parametersMethod;
         this.parameters = parameters;
+    }
+
+    public Task(TaskResponse taskResponse){
+        this(taskResponse.aClass,taskResponse.method,taskResponse.parametersMethod,taskResponse.parameters);
     }
 
     public Task(Resource resource){

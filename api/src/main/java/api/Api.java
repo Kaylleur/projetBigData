@@ -7,7 +7,7 @@ import java.net.URL;
 
 /**
  * Created by Thomas on 03/11/2015.
- * Need to be reviewed for multiples requests at same time
+ * //TODO Need to be reviewed for multiples requests at same time
  */
 public class Api {
 

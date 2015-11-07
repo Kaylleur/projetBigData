@@ -11,8 +11,4 @@ public class SummonerResponse extends Response{
     public Integer summonerLevel;
     public Integer revisionDate;
 
-    public SummonerResponse() {
-        super();
-    }
-
 }
